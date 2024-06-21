@@ -26,6 +26,9 @@ const userSchema = new mongoose.Schema({
         enum: ['Admin', 'Student', 'Instructor'],
         required: true,
     },
+    approved: {
+        type: Boolean,
+    },
     additionalDetails: {
         type: mongoose.Schema.Types.ObjectId,
         required: true,
@@ -38,6 +41,12 @@ const userSchema = new mongoose.Schema({
     image: {
         type: String,
         required: true,
+    },
+    token: {
+        type: String
+    },
+    resetPasswordExpires: {
+        type: DataView,
     },
     courseProgress: [
         {
