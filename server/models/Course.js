@@ -1,17 +1,16 @@
 // course details schema
 
+/* This code snippet is defining a Mongoose schema for a course in a Node.js application. Here's a
+breakdown of what each part of the code is doing: */
+
 const mongoose = require('mongoose');
 
 const courseSchema = new mongoose.Schema({
     courseName: {
         type: String,
-        trim: true,
-        required: true
     },
     description: {
         type: String,
-        trim: true,
-        required: true
     },
     instructor: {
         type: mongoose.Schema.Types.ObjectId,
@@ -36,15 +35,17 @@ const courseSchema = new mongoose.Schema({
     ],
     price: {
         type: Number,
-        required: true
     },
     thumbnail: {
         type: String,
-        required: true
+    },
+    category: {
+        type: mongoose.Schema.Types.ObjectId,
+        ref: "Category",
     },
     tag: {
-        type: mongoose.Schema.Types.ObjectId,
-        ref: "Tag",
+        type: [String],
+        required: true
     },
     studentsEnrolled: [
         {
@@ -52,7 +53,14 @@ const courseSchema = new mongoose.Schema({
             required: true,
             ref: "User",
         }
-    ]
+    ],
+    instructions: {
+        type: [String],
+    },
+    status: {
+        type: String,
+        enum: ["Draft", "Published"],
+    },
 });
 
 module.exports = mongoose.model("Course", courseSchema);
