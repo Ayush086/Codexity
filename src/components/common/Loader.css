@@ -1,0 +1,46 @@
+body {
+  margin: 0;
+}
+
+.perspective-800 {
+  perspective: 800px;
+}
+
+@keyframes ani-1 {
+  from {
+    transform: rotateZ(120deg) rotateX(70deg) rotateZ(0deg);
+  }
+  to {
+    transform: rotateZ(120deg) rotateX(70deg) rotateZ(360deg);
+  }
+}
+
+@keyframes ani-2 {
+  from {
+    transform: rotateZ(240deg) rotateX(70deg) rotateZ(0deg);
+  }
+  to {
+    transform: rotateZ(240deg) rotateX(70deg) rotateZ(360deg);
+  }
+}
+
+@keyframes ani-3 {
+  from {
+    transform: rotateZ(360deg) rotateX(70deg) rotateZ(0deg);
+  }
+  to {
+    transform: rotateZ(360deg) rotateX(70deg) rotateZ(360deg);
+  }
+}
+
+.animate-ani-1 {
+  animation: ani-1 2s linear infinite;
+}
+
+.animate-ani-2 {
+  animation: ani-2 2s linear infinite;
+}
+
+.animate-ani-3 {
+  animation: ani-3 2s linear infinite;
+}
